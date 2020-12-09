@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body  {
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+}
+.container {
+    padding: 120px 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #101010;
+}
+.timeLine{
+    position: relative;
+    height: auto;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.timeLine ul {
+    list-style: none;
+}
+.timeLine ul li {
+    padding: 20px;
+    background-color: #1e1f22;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.timeLine ul li:last-child{
+    margin-bottom: 0;
+}
+.timeLineContent h1{
+    
+    margin-bottom: 15px;
+    line-height: 30px;
+    font-size: 1.2rem;
+}
+.timeLineContent p {
+    line-height: 30px;
+    font-size: 1rem;
+}
+.timeLineContent .date {
+    font-size: .8rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+}
+@media only screen and (min-width:768px){
+    .timeLine::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        background-color: white;
+        left:50%;
+        transform:translateX(-50%);
+    }
+    .timeLine ul li{
+        width: 50%;
+        margin-bottom: 50px;
+        position: relative;
+        cursor: pointer;
+    }
+    .timeLine ul li:nth-child(odd){
+        float: left;
+        clear: right;
+        transform:translateX(-25px);
+        border-radius: 30px 0 30px 30px;
+    }
+    .timeLine ul li:nth-child(even){
+        float: right;
+        clear: left;
+        transform:translateX(25px);
+        border-radius: 0 30px 30px 30px;
+
+    }
+    .timeLine ul li:after{
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        border-radius: 50%;
+        top: 0;
+        transition:background-color 0.4s ease-in-out;
+
+    }
+    .timeLine ul li:nth-child(odd)::after {
+        transform:translate(50%, -50%);
+        right:-25px;
+    }
+    .timeLine ul li:nth-child(even)::after {
+        transform:translate(-50%, 50%);
+        left:-25px;
+    }
+    .timeLine ul li:hover:after {
+        background-color: cyan;
+    }
+    .timeLineContent .date {
+        position: absolute;
+        top: -30px;
+    }
+}
